@@ -6,6 +6,7 @@ import { Header } from "./_components/header";
 import { Register } from "@/app/_components/register";
 import { socket } from "../lib/socket"; // Ensure this path is correct
 import CodeEditor from "./_components/editor"; // Ensure this path is correct
+import TodoList from "./_components/todolist";
 
 
 interface HomeProps {}
@@ -85,8 +86,7 @@ const Home: React.FC<HomeProps> = () => {
             <CodeEditor /> 
           </div>
           <div className="p-2 rounded-lg xl:w-1/3 lg:w-1/3 md:w-1/2 border-r-color">
-            <h3 className="text-xl font-semibold mb-2">Chat</h3>
-            <p className="text-gray-700">Here Goes the Chat</p>
+            <TodoList/>
           </div>
         </div>
       </div>

@@ -1,114 +1,44 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from 'react';
 
 interface TerminalProps {
   output: string;
+  readMeContent: string; // Add the readMeContent prop
 }
 
-const Terminal: React.FC<TerminalProps> = ({ output }) => {
-  const [activeTab, setActiveTab] = useState("terminal");
-  const [height, setHeight] = useState(250); // Initial height
-  const terminalRef = useRef<HTMLDivElement | null>(null);
-  const isResizingRef = useRef(false);
+const Terminal: React.FC<TerminalProps> = ({ output, readMeContent }) => {
+  const [activeTab, setActiveTab] = useState<string>('Terminal');
 
-  const tabs = [
-    { name: "Terminal", value: "terminal" },
-    { name: "Output", value: "output" },
-    { name: "Problems", value: "problems" },
-  ];
-
-  const renderContent = () => {
-    switch (activeTab) {
-      case "terminal":
-        return (
-          <div className="p-4 h-full overflow-y-auto bg-gray-100">
-            <p>Welcome to the terminal!</p>
-            {/* Add your terminal functionality here */}
-          </div>
-        );
-      case "output":
-        return (
-          <div className="p-4 h-full overflow-y-auto bg-gray-100">
-            <pre>{output}</pre>
-          </div>
-        );
-      case "problems":
-        return (
-          <div className="p-4 h-full overflow-y-auto bg-gray-100">
-            <p>List of problems will be displayed here.</p>
-            {/* Add your problem list here */}
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
-
-  const startResizing = (e: React.MouseEvent) => {
-    isResizingRef.current = true;
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", stopResizing);
-  };
-
-  const handleMouseMove = (e: MouseEvent) => {
-    if (isResizingRef.current && terminalRef.current) {
-      const newHeight =
-        height - (e.clientY - terminalRef.current.getBoundingClientRect().top);
-      if (newHeight > 100) {
-        // Set a minimum height
-        setHeight(newHeight);
-      }
-    }
-  };
-
-  const stopResizing = () => {
-    isResizingRef.current = false;
-    document.removeEventListener("mousemove", handleMouseMove);
-    document.removeEventListener("mouseup", stopResizing);
-  };
+  console.log('Rendering Terminal component');
+  console.log('Terminal output:', output);
+  console.log('ReadMe content:', readMeContent);
 
   return (
-    <div ref={terminalRef} className="w-full" style={{ height: `${height}px` }}>
-      <div className="flex justify-left border-b border-gray-300">
-        {tabs.map((tab) => (
-          <button
-            key={tab.value}
-            className={`
-              rounded-lg 
-              p-2 
-              text-left 
-              inline-flex 
-              items-center 
-              justify-center
-              whitespace-nowrap 
-              text-sm 
-              font-medium 
-              transition-colors 
-              focus-visible:outline-none 
-              focus-visible:ring-1 
-              focus-visible:ring-ring 
-              disabled:pointer-events-none 
-              disabled:opacity-50 shadow 
-              hover:bg-primary/90 
-              h-9 px-4 py-2 
-              bg-blue-50 
-              text-blue-600 
-              rounded-lg 
-              ${
-                activeTab === tab.value
-                  ? "bg-blue-50 text-black font-semibold"
-                  : "bg-white text-gray-600 hover:bg-gray-100"
-              }`}
-            onClick={() => setActiveTab(tab.value)}
-          >
-            {tab.name}
-          </button>
-        ))}
+    <div className="w-full mt-2">
+      <div className="flex border-b">
+        <button
+          className={`px-4 py-2 -mb-px font-semibold text-gray-800 border-b-2 ${
+            activeTab === 'Terminal' ? 'border-blue-500' : ''
+          }`}
+          onClick={() => setActiveTab('Terminal')}
+        >
+          Terminal
+        </button>
+        <button
+          className={`px-4 py-2 -mb-px font-semibold text-gray-800 border-b-2 ${
+            activeTab === 'ReadMe' ? 'border-blue-500' : ''
+          }`}
+          onClick={() => setActiveTab('ReadMe')}
+        >
+          ReadMe
+        </button>
       </div>
-      <div className="h-full">{renderContent()}</div>
-      <div
-        className="w-full h-1 bg-blue-50 cursor-n-resize"
-        onMouseDown={startResizing}
-      ></div>
+      <div className="p-4 bg-gray-100 rounded-lg">
+        {activeTab === 'Terminal' ? (
+          <pre className="text-xs whitespace-pre-wrap">{output}</pre>
+        ) : (
+          <pre className="text-xs whitespace-pre-wrap">{readMeContent}</pre>
+        )}
+      </div>
     </div>
   );
 };
