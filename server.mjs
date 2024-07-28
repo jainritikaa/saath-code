@@ -1,50 +1,56 @@
-import { createServer } from "node:http";
-import next from "next";
-import { Server } from "socket.io";
+import express from 'express';
+import http from 'http';
+import { Server } from 'socket.io';
+import { executeCode } from './codeExecuter.js'; // Ensure this path is correct
 
-const dev = process.env.NODE_ENV !== "production";
-const hostname = "localhost";
-const port = 4000;
-const app = next({ dev, hostname, port });
-const handler = app.getRequestHandler();
+const app = express();
+const server = http.createServer(app);
+const io = new Server(server, {
+  cors: {
+    origin: '*', // Update this to your client's origin if necessary
+    methods: ['GET', 'POST']
+  }
+});
 
-app.prepare().then(() => {
-  const httpServer = createServer((req, res) => {
-    handler(req, res).catch((err) => {
-      console.error("Error handling request:", err);
-      res.statusCode = 500;
-      res.end("Internal Server Error");
-    });
+io.on('connection', (socket) => {
+  console.log('New client connected');
+
+  socket.on('code_update', (file) => {
+    console.log(`Code update received for file: ${file.name}`);
+    console.log(`Code content: ${file.code}`);
+    console.log(`Language: ${file.language}`);
   });
 
-  const io = new Server(httpServer, {
-    cors: {
-      origin: "*", // Adjust this based on your client's origin
-      methods: ["GET", "POST"],
-    },
-  });
-
-  let code = '// Start coding...';
-
-  io.on("connection", (socket) => {
-    console.log("A new connection");
-    socket.emit("code_update", code);
-
-    socket.on("code_update", (newCode) => {
-      code = newCode; // Update server-side code
-      socket.broadcast.emit("code_update", newCode); // Broadcast to all clients except the sender
-    });
-
-    socket.on("disconnect", () => {
-      console.log("Client disconnected");
-    });
-  });
-
-  httpServer.listen(port, (err) => {
-    if (err) {
-      console.error("Error starting server:", err);
-      process.exit(1);
+  socket.on('run_code', async (data) => {
+    console.log('Run code request received');
+    console.log('Received data:', data);
+    
+    const { code, language } = data;
+    
+    if (typeof code !== 'string' || typeof language !== 'string') {
+      const errorMessage = 'Invalid data received. Ensure both code and language are strings.';
+      console.error(errorMessage);
+      socket.emit('code_result', `Error: ${errorMessage}`);
+      return;
     }
-    console.log(`> Ready on http://${hostname}:${port}`);
+    
+    console.log(`Code to execute: ${code}`);
+    console.log(`Language: ${language}`);
+    
+    try {
+      const result = await executeCode(code, language); // Execute code based on the language
+      console.log('Code execution result:', result);
+      socket.emit('code_result', result); // Send back the result
+    } catch (error) {
+      console.error('Code execution error:', error);
+      socket.emit('code_result', `Error: ${error.message}`);
+    }
+  });
+
+  socket.on('disconnect', () => {
+    console.log('Client disconnected');
   });
 });
+
+const PORT = 4000;
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
