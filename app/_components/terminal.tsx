@@ -1,6 +1,10 @@
 import React, { useState, useRef } from "react";
 
-const Terminal = () => {
+interface TerminalProps {
+  output: string;
+}
+
+const Terminal: React.FC<TerminalProps> = ({ output }) => {
   const [activeTab, setActiveTab] = useState("terminal");
   const [height, setHeight] = useState(250); // Initial height
   const terminalRef = useRef<HTMLDivElement | null>(null);
@@ -24,8 +28,7 @@ const Terminal = () => {
       case "output":
         return (
           <div className="p-4 h-full overflow-y-auto bg-gray-100">
-            <p>Your output will be displayed here.</p>
-            {/* Add your output display here */}
+            <pre>{output}</pre>
           </div>
         );
       case "problems":
@@ -65,35 +68,36 @@ const Terminal = () => {
 
   return (
     <div ref={terminalRef} className="w-full" style={{ height: `${height}px` }}>
-      <div className="flex  justify-left border-b border-gray-300">
+      <div className="flex justify-left border-b border-gray-300">
         {tabs.map((tab) => (
           <button
             key={tab.value}
             className={`
-                rounded-lg 
-                p-2 
-                text-left 
-                inline-flex 
-                items-center 
-                justify-center
-                 whitespace-nowrap 
-                 text-sm 
-                 font-medium 
-                 transition-colors 
-                 focus-visible:outline-none 
-                 focus-visible:ring-1 
-                 focus-visible:ring-ring 
-                 disabled:pointer-events-none 
-                 disabled:opacity-50 shadow 
-                 hover:bg-primary/90 
-                 h-9 px-4 py-2 
-                 bg-blue-50 
-                 text-blue-600 
-                 rounded-lg"> ${
-              activeTab === tab.value
-                ? "bg-blue-50 text-black font-semibold"
-                : "bg-white text-gray-600 hover:bg-gray-100"
-            }`}
+              rounded-lg 
+              p-2 
+              text-left 
+              inline-flex 
+              items-center 
+              justify-center
+              whitespace-nowrap 
+              text-sm 
+              font-medium 
+              transition-colors 
+              focus-visible:outline-none 
+              focus-visible:ring-1 
+              focus-visible:ring-ring 
+              disabled:pointer-events-none 
+              disabled:opacity-50 shadow 
+              hover:bg-primary/90 
+              h-9 px-4 py-2 
+              bg-blue-50 
+              text-blue-600 
+              rounded-lg 
+              ${
+                activeTab === tab.value
+                  ? "bg-blue-50 text-black font-semibold"
+                  : "bg-white text-gray-600 hover:bg-gray-100"
+              }`}
             onClick={() => setActiveTab(tab.value)}
           >
             {tab.name}
@@ -102,8 +106,7 @@ const Terminal = () => {
       </div>
       <div className="h-full">{renderContent()}</div>
       <div
-        className="w-full h-1 bg-blue-50
-         cursor-n-resize"
+        className="w-full h-1 bg-blue-50 cursor-n-resize"
         onMouseDown={startResizing}
       ></div>
     </div>

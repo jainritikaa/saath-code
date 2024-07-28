@@ -6,7 +6,7 @@ import { Header } from "./_components/header";
 import { Register } from "@/app/_components/register";
 import { socket } from "../lib/socket"; // Ensure this path is correct
 import CodeEditor from "./_components/editor"; // Ensure this path is correct
-import Terminal from "./_components/terminal";
+
 
 interface HomeProps {}
 
@@ -83,7 +83,6 @@ const Home: React.FC<HomeProps> = () => {
         <div className="flex flex-col lg:flex-row-reverse lg:h-screen space-y-2 lg:space-y-0 lg:space-x-2 mr-2">
           <div className="flex flex-col rounded-lg p-1 w-full lg:w-full lg:flex-1 border-r border-gray-1">
             <CodeEditor /> 
-            <Terminal />
           </div>
           <div className="p-2 rounded-lg xl:w-1/3 lg:w-1/3 md:w-1/2 border-r-color">
             <h3 className="text-xl font-semibold mb-2">Chat</h3>
