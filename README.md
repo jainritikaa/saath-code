@@ -53,6 +53,7 @@ SaathCode aims to revolutionize the way developers collaborate by providing a pl
 
 ![Node.js](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![Prisma ORM](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
 ### Authentication
@@ -62,7 +63,6 @@ SaathCode aims to revolutionize the way developers collaborate by providing a pl
 ### Collaboration Tools
 
 ![WebSockets](https://img.shields.io/badge/WebSockets-010101?style=for-the-badge&logo=websocket&logoColor=white)
-![WebRTC](https://img.shields.io/badge/WebRTC-333333?style=for-the-badge&logo=webrtc&logoColor=white)
 
 ### Other Tools
 
@@ -70,4 +70,4 @@ SaathCode aims to revolutionize the way developers collaborate by providing a pl
 
 ## Screenshot
 
-![SaathCode Screenshot](https://via.placeholder.com/800x400.png?text=Screenshot+Coming+Soon)
+![SaathCode Screenshot](SaathCodeHero.png)
