@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SaathCode
 
-## Getting Started
+SaathCode is a cutting-edge collaborative runtime code editor designed to facilitate real-time collaboration between developers. Built using the powerful combination of Next.js, Prisma, MongoDB, TypeScript, and Tailwind CSS, SaathCode offers a versatile platform with support for multiple programming languages, including JavaScript and Python. This project integrates various features, such as OAuth authentication, terminal access, and a Gemini-based README generator, ensuring a seamless and productive coding experience. Future updates will include voice call functionality and an advanced task management UI for marking tasks as done or in-progress.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. [Project Overview](#project-overview)
+2. [Features](#features)
+3. [Tech Stack](#tech-stack)
+4. [Installation and Setup](#installation-and-setup)
+5. [Dependencies](#dependencies)
+6. [Environment Variables](#environment-variables)
+7. [Usage](#usage)
+8. [Project Structure](#project-structure)
+9. [Future Updates](#future-updates)
+10. [Contributing](#contributing)
+11. [License](#license)
+12. [Contact](#contact)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+SaathCode aims to revolutionize the way developers collaborate by providing a platform that supports real-time coding sessions, complete with language support for JavaScript, Python, and more. Whether you’re working on a group project, conducting a code review, or simply pair programming, SaathCode offers all the tools you need to be productive and efficient.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
 
-## Learn More
+### Real-time Collaboration
 
-To learn more about Next.js, take a look at the following resources:
+- **Shared Editing:** Multiple users can edit the same document simultaneously, with changes reflected in real-time.
+- **Cursor Tracking:** See where other collaborators are working in the document.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Multiple Language Support
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **JavaScript:** Write and execute JavaScript code directly within the editor.
+- **Python:** Support for Python scripting and execution.
+- **More Languages:** Easily extendable to support additional languages as needed.
 
-## Deploy on Vercel
+### Authentication
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Secure OAuth Sign-Up and Sign-In:** Users can securely authenticate using popular OAuth providers, ensuring secure access to the platform.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Terminal and Output Window
+
+- **Integrated Terminal:** Execute commands and interact with the server directly from the editor.
+- **Output Window:** View the results of your code execution without leaving the interface.
+
+### Gemini-based README Generator
+
+- **Automatic README Generation:** Generate project README files dynamically using the Gemini platform, saving time and ensuring consistency.
+
+### Task Management UI
+
+- **Task Creation:** Easily create and manage tasks associated with your projects.
+- **Progress Tracking:** Mark tasks as done or in-progress with a user-friendly interface.
+
+### Future Feature - Voice Call Integration
+
+- **Real-time Communication:** Future integration of voice calling to facilitate communication during collaboration sessions.
+
+## Tech Stack
+
+### Frontend
+
+- **Next.js:** A powerful React framework for building server-side rendered and statically generated web applications.
+- **TypeScript:** Ensures type safety and better code maintainability, enhancing the overall development experience.
+- **Tailwind CSS:** A utility-first CSS framework that enables rapid UI development with a consistent design system.
+
+### Backend
+
+- **Node.js:** A scalable and efficient JavaScript runtime used to build the server-side of the application.
+- **Prisma ORM:** A modern database toolkit that simplifies data management, providing an abstraction layer over MongoDB.
+- **MongoDB:** A flexible NoSQL database used for storing user data, project information, and other relevant data.
+
+### Authentication
+
+- **NextAuth.js:** A complete authentication solution for Next.js applications, enabling OAuth-based sign-up and sign-in functionalities.
+
+### Collaboration Tools
+
+- **WebSockets:** Enables real-time communication between the server and clients, allowing for instant updates in the collaborative environment.
+- **WebRTC:** Powers peer-to-peer communication, which will be utilized in future updates for features like voice calling.
+
+### Other Tools
+
+- **Gemini:** Used for generating dynamic README files, leveraging natural language processing capabilities.
