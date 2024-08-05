@@ -2,21 +2,6 @@
 
 SaathCode is a cutting-edge collaborative runtime code editor designed to facilitate real-time collaboration between developers. Built using the powerful combination of Next.js, Prisma, MongoDB, TypeScript, and Tailwind CSS, SaathCode offers a versatile platform with support for multiple programming languages, including JavaScript and Python. This project integrates various features, such as OAuth authentication, terminal access, and a Gemini-based README generator, ensuring a seamless and productive coding experience. Future updates will include voice call functionality and an advanced task management UI for marking tasks as done or in-progress.
 
-## Table of Contents
-
-1. [Project Overview](#project-overview)
-2. [Features](#features)
-3. [Tech Stack](#tech-stack)
-4. [Installation and Setup](#installation-and-setup)
-5. [Dependencies](#dependencies)
-6. [Environment Variables](#environment-variables)
-7. [Usage](#usage)
-8. [Project Structure](#project-structure)
-9. [Future Updates](#future-updates)
-10. [Contributing](#contributing)
-11. [License](#license)
-12. [Contact](#contact)
-
 ## Project Overview
 
 SaathCode aims to revolutionize the way developers collaborate by providing a platform that supports real-time coding sessions, complete with language support for JavaScript, Python, and more. Whether you’re working on a group project, conducting a code review, or simply pair programming, SaathCode offers all the tools you need to be productive and efficient.
