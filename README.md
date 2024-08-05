@@ -70,4 +70,4 @@ SaathCode aims to revolutionize the way developers collaborate by providing a pl
 
 ## Screenshot
 
-![SaathCode Screenshot](SaathCodeHero.png)
+![SaathCode Screenshot](SathCodeHero.png)
