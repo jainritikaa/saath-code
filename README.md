@@ -45,25 +45,30 @@ SaathCode aims to revolutionize the way developers collaborate by providing a pl
 
 ### Frontend
 
-- **Next.js:** A powerful React framework for building server-side rendered and statically generated web applications.
-- **TypeScript:** Ensures type safety and better code maintainability, enhancing the overall development experience.
-- **Tailwind CSS:** A utility-first CSS framework that enables rapid UI development with a consistent design system.
+- ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+- ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+- ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 ### Backend
 
-- **Node.js:** A scalable and efficient JavaScript runtime used to build the server-side of the application.
-- **Prisma ORM:** A modern database toolkit that simplifies data management, providing an abstraction layer over MongoDB.
-- **MongoDB:** A flexible NoSQL database used for storing user data, project information, and other relevant data.
+- ![Node.js](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+- ![Prisma ORM](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+- ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
 ### Authentication
 
-- **NextAuth.js:** A complete authentication solution for Next.js applications, enabling OAuth-based sign-up and sign-in functionalities.
+- ![NextAuth.js](https://img.shields.io/badge/NextAuth.js-FFFFFF?style=for-the-badge&logo=nextdotjs&logoColor=000000)
 
 ### Collaboration Tools
 
-- **WebSockets:** Enables real-time communication between the server and clients, allowing for instant updates in the collaborative environment.
-- **WebRTC:** Powers peer-to-peer communication, which will be utilized in future updates for features like voice calling.
+- ![WebSockets](https://img.shields.io/badge/WebSockets-010101?style=for-the-badge&logo=websocket&logoColor=white)
+- ![WebRTC](https://img.shields.io/badge/WebRTC-333333?style=for-the-badge&logo=webrtc&logoColor=white)
 
 ### Other Tools
 
-- **Gemini:** Used for generating dynamic README files, leveraging natural language processing capabilities.
+- ![Gemini](https://img.shields.io/badge/Gemini-FF0066?style=for-the-badge&logoColor=white)
+
+## Screenshot
+
+![SaathCode Screenshot](https://via.placeholder.com/800x400.png?text=Screenshot+Coming+Soon)
+
